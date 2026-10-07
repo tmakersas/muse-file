@@ -1,3 +1,4 @@
+import { SITE } from "@/lib/site";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import Shell from "@/components/Shell";
@@ -13,7 +14,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   if (!f) return {};
   const title = `The file an AI would keep on @${f.handle}`;
   const description = `"This user responds better to short nudges between ${fmtHour(f.nudge.start)} and ${fmtHour(f.nudge.end)}." Built from their own X archive.`;
-  const img = `/api/og?d=${d}`;
+  const img = `${SITE}/api/og?d=${d}`;
   return {
     title,
     description,

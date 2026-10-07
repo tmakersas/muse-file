@@ -4,7 +4,7 @@ TIME read the instructions behind Meta's Muse (Oct 6 2026): it updates a file on
 
 This site builds that file from public X posts only. Parody of the format, not Meta's file, not affiliated with Meta.
 
-Live: https://muse-file.vercel.app
+Live: https://www.tmaker.io/muse-file (rewrite in tmaker-portfolio; muse-file.vercel.app redirects there)
 
 ## What is on the file
 - Nudge window: the 3-hour window holding the most replies, in the subject's clock

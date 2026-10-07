@@ -1,3 +1,4 @@
+import { SITE } from "@/lib/site";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Shell from "@/components/Shell";
@@ -18,11 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!f) return {};
   const title = `The file an AI would keep on @${f.handle}`;
   const description = `"This user responds better to short nudges between ${fmtHour(f.nudge.start)} and ${fmtHour(f.nudge.end)}." Built from ${f.n} public posts.`;
-  const img = `/api/og?h=${f.handle}`;
+  const img = `${SITE}/api/og?h=${f.handle}`;
   return {
     title,
     description,
-    alternates: { canonical: `/f/${f.handle}` },
+    alternates: { canonical: `${SITE}/f/${f.handle}` },
     openGraph: { title, description, images: [{ url: img, width: 1200, height: 630 }] },
     twitter: { card: "summary_large_image", title, description, images: [img], creator: "@tibo_maker" },
   };

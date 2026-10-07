@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: TITLE,
   description: DESC,
-  openGraph: { title: TITLE, description: DESC, images: [{ url: "/api/og", width: 1200, height: 630 }], type: "website" },
-  twitter: { card: "summary_large_image", creator: "@tibo_maker", title: TITLE, description: DESC, images: ["/api/og"] },
+  openGraph: { title: TITLE, description: DESC, images: [{ url: `${SITE}/api/og`, width: 1200, height: 630 }], type: "website" },
+  twitter: { card: "summary_large_image", creator: "@tibo_maker", title: TITLE, description: DESC, images: [`${SITE}/api/og`] },
 };
 
 export const viewport: Viewport = { themeColor: "#0b0a09", colorScheme: "dark" };

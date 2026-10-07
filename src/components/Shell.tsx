@@ -1,4 +1,5 @@
 "use client";
+import { BASE } from "@/lib/site";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -32,7 +33,7 @@ export default function Shell({
   async function shareUrl() {
     if (!mine) return `${location.origin}${location.pathname}`;
     const d = await encodeFile(file);
-    return `${location.origin}/s?d=${d}`;
+    return `${location.origin}${BASE}/s?d=${d}`;
   }
 
   const tweet = () =>
