@@ -265,7 +265,7 @@ export default function Dossier({
                           <div className="h-full bg-ink" style={{ width: `${(p.count / maxCircle) * 100}%` }} />
                         </div>
                         <div className="mt-1 font-mono text-[10px] text-ink/55">
-                          {p.count}x{p.replies ? ` · ${p.replies} replies` : ""}
+                          {p.count}x{p.replies ? ` · ${p.replies} ${p.replies === 1 ? "reply" : "replies"}` : ""}
                         </div>
                       </div>
                     </motion.li>
