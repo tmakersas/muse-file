@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-type: var(--font-courier);
+  --font-mono: var(--font-space);
+  --font-serif: var(--font-instrument);
+  --color-paper: #ece5d3;
+  --color-paper2: #e2d9c2;
+  --color-ink: #1b1915;
+  --color-stamp: #c62a1f;
+  --color-night: #0b0a09;
+}
+
+html {
+  background: #0b0a09;
+  color-scheme: dark;
+}
+
+body {
+  color: #ece5d3;
+  font-family: var(--font-courier), ui-monospace, monospace;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: #c62a1f;
+  color: #fff;
+}
+
+.grain {
+  pointer-events: none;
+  opacity: 0.16;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.3  0 0 0 0 0.25  0 0 0 0 0.15  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.grain-dark {
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.paper {
+  background-color: #ece5d3;
+  background-image:
+    radial-gradient(120% 80% at 10% 0%, rgba(255, 255, 255, 0.55), transparent 60%),
+    radial-gradient(90% 60% at 100% 100%, rgba(120, 90, 40, 0.18), transparent 70%),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(60, 80, 120, 0.06) 31px 32px);
+  color: #1b1915;
+}
+
+/* Hand-inked stamp: rough edges via an SVG displacement filter defined in Dossier. */
+.stamp {
+  color: #c62a1f;
+  border: 3px solid currentColor;
+  filter: url(#rough);
+  mix-blend-mode: multiply;
+  letter-spacing: 0.12em;
+}
+
+.redact {
+  background: #111;
+  box-shadow: 0 0 0 1px #111;
+}
+
+.marker {
+  background: linear-gradient(100deg, transparent 0 2%, rgba(255, 214, 10, 0.75) 3% 96%, transparent 98%);
+  padding: 0 0.15em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.caret::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.12em;
+  background: currentColor;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.scanline {
+  background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret::after {
+    animation: none;
+  }
+}
